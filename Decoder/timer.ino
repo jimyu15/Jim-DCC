@@ -27,7 +27,7 @@ static void TA0_ISR(void)
   if (timerCount > SHUTDOWN_TIMEOUT / MICROS_PER_COUNT)
   {
     sleepingMode = 1;
-    P1OUT &= ~(NSLEEP + LED);
+    P1OUT = 0;
     __bis_status_register(LPM4_bits+GIE);;
   }
     

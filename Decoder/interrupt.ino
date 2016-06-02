@@ -1,7 +1,7 @@
 void interruptInit()
 {
   __dint();
-  P1IES |= IN1 + IN2;
+  P1IES &= ~(IN1 + IN2);
   P1IFG &= ~(IN1 + IN2);
   P1IE = IN1;
   __eint();
@@ -16,7 +16,7 @@ void Port_1(void)
 {
   if (P1IFG & IN1)
   {
-    if (P1IN & IN2)// Prevent VCC drop to zero
+    if (~P1IN & IN2)// Prevent VCC drop to zero
     {
       if (sleepingMode)
       {
@@ -34,7 +34,7 @@ void Port_1(void)
   
   if (P1IFG & IN2)
   {
-    if (P1IN & IN1)// Prevent VCC drop to zero
+    if (~P1IN & IN1)// Prevent VCC drop to zero
     {
       if (sleepingMode)
       {
