@@ -20,14 +20,15 @@ void Port_1(void)
     {
       if (sleepingMode)
       {
+        timerCount = 0;
         sleepingMode = 0;
         P1OUT |= NSLEEP;
         LPM4_EXIT;
       }
       else if (phase);
       LPM0_EXIT;
+      P1IE = IN2;
     }
-    P1IE = IN2;
     P1IFG &= ~IN1;
   }
   
@@ -37,14 +38,15 @@ void Port_1(void)
     {
       if (sleepingMode)
       {
+        timerCount = 0;
         sleepingMode = 0;
         P1OUT |= NSLEEP;
         LPM4_EXIT;
       }
       else if (!phase);
       LPM0_EXIT;
+      P1IE = IN1;
     }
-    P1IE = IN1;
     P1IFG &= ~IN2;
   }
 }

@@ -10,12 +10,12 @@ void timerInit()
 
 inline void timerEnable()
 {
-  TACCTL0 = CCIE;
+  TACCTL0 |= CCIE;
 }
 
 inline void timerDisable()
 {
-  TACCTL0 = 0;
+  TACCTL0 &= ~CCIE;
 }
 
 __attribute__((interrupt(TIMER0_A0_VECTOR)))
@@ -23,11 +23,12 @@ static void TA0_ISR(void)
 {
   timer++;
   timerCount++;
+  
   if (timerCount > SHUTDOWN_TIMEOUT / MICROS_PER_COUNT)
   {
     sleepingMode = 1;
     P1OUT &= ~(NSLEEP + LED);
-    LPM4;
+    __bis_status_register(LPM4_bits+GIE);;
   }
     
 }
