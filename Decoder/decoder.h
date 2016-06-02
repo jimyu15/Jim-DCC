@@ -7,3 +7,24 @@
 #define LED BIT3
 #define IN1 BIT4
 #define IN2 BIT5
+
+//CV
+#define PRI_ADDR 1
+#define VSTART 2
+#define ACC_RATE 3
+#define DEC_RATE 4
+#define VHIGH 5
+#define VMID 6
+#define VERSION 7
+#define MANU_ID 8
+#define FUNC1 13
+#define FUNC2 14
+#define LOCK1 15
+#define LOCK2 16
+#define EXT_ADDR1 17
+#define EXT_ADDR2 18
+#define CONST_ADDR 19
+#define CONST_ADDR_FUNC1 20
+#define CONST_ADDR_FUNC2 21
+#define CONFIG 29
+

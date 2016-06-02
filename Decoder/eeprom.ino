@@ -47,5 +47,4 @@ uint16_t read16(uint16_t addr)
 void eepromInit()
 {
   Wire.begin();
-  addr = read
 }
