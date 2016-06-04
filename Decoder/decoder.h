@@ -1,13 +1,26 @@
+//#define DEBUG
+
+#define LOCO
+
+
+
 #define SHUTDOWN_TIMEOUT 500
 #define MICROS_PER_COUNT (128*1000000/F_CPU)
 
 
 #define NSLEEP BIT0
-#define PH BIT1
-#define EN BIT2
 #define LED BIT3
 #define IN1 BIT4
 #define IN2 BIT5
+
+#ifdef DEBUG
+#define PH BIT7
+#define EN BIT6
+
+#else
+#define PH BIT1
+#define EN BIT2
+#endif
 
 //CV
 #define PRI_ADDR 1
