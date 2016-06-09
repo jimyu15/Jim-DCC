@@ -26,12 +26,19 @@ static void TA0_ISR(void)
   timer++;
   timerCount++;
   
-  if (timerCount > SHUTDOWN_TIMEOUT / MICROS_PER_COUNT && 0)
+  #ifndef DEBUG
+  if (timerCount > SHUTDOWN_TIMEOUT / MICROS_PER_COUNT)
   {
     sleepingMode = 1;
-    P1OUT = 0;
+    #ifdef MOTOR
+    P1OUT &= ~(NSLEEP + LED);
+    #else
+    P1OUT &= ~LED;
+    #endif
+
     __bis_status_register(LPM4_bits+GIE);;
   }
+  #endif
     
 }
 

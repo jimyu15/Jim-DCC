@@ -22,7 +22,9 @@ void Port_1(void)
       {
         timerCount = 0;
         sleepingMode = 0;
+        #ifdef MOTOR
         P1OUT |= NSLEEP;
+        #endif
         LPM4_EXIT;
       }
       else if (phase);
@@ -40,7 +42,9 @@ void Port_1(void)
       {
         timerCount = 0;
         sleepingMode = 0;
+        #ifdef MOTOR
         P1OUT |= NSLEEP;
+        #endif
         LPM4_EXIT;
       }
       else if (!phase);

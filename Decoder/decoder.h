@@ -1,6 +1,6 @@
-#define MOTOR
+//#define DEBUG
 
-#define DEBUG
+#define MOTOR
 
 #define SHUTDOWN_TIMEOUT 500
 #define MICROS_PER_COUNT (128*1000000/F_CPU)
@@ -21,22 +21,22 @@
 //#define F2
 
 //CV
-#define PRI_ADDR 1
-#define VSTART 2
-#define ACC_RATE 3
-#define DEC_RATE 4
-#define VHIGH 5
-#define VMID 6
-#define VERSION 7
-#define MANU_ID 8
-#define FUNC1 13
-#define FUNC2 14
-#define LOCK1 15
-#define LOCK2 16
-#define EXT_ADDR1 17
-#define EXT_ADDR2 18
-#define CONST_ADDR 19
-#define CONST_ADDR_FUNC1 20
-#define CONST_ADDR_FUNC2 21
-#define CONFIG 29
+#define CV_PRI_ADDR 0
+#define CV_VSTART 1
+#define CV_ACC_RATE 2
+#define CV_DEC_RATE 3
+#define CV_VHIGH 4
+#define CV_VMID 5
+#define CV_VERSION 6
+#define CV_MANU_ID 7
+#define CV_FUNC1 12
+#define CV_FUNC2 13
+#define CV_LOCK1 14
+#define CV_LOCK2 15
+#define CV_EXT_ADDR1 16
+#define CV_EXT_ADDR2 17
+#define CV_CONST_ADDR 18
+#define CV_CONST_ADDR_FUNC1 19
+#define CV_CONST_ADDR_FUNC2 20
+#define CV_CONFIG 28
 

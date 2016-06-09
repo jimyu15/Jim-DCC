@@ -1,3 +1,5 @@
+uint8_t cv[2] = {0};
+
 uint8_t getPacket(uint8_t buffer[])
 {
   int i = 0;
@@ -68,19 +70,22 @@ uint8_t readPacket(int count)
   }
   if (packetPos)
   {
+    P1OUT ^= LED;
     switch(buffer[packetPos] >> 5)
     {
     case 0:
       //000 Decoder and Consist Control Instruction
+      if (buffer[packetPos] == 0)
+        controlInit();
       break;
 
     case 1:
       //001 Advanced Operation Instructions
-      if (buffer[packetPos] & B00011111)
+      if (buffer[packetPos] & B00011111 == B00011111)
       {
         speedSet(buffer[packetPos + 1]);
       }
-      if (buffer[packetPos] & B00011110)
+      if (buffer[packetPos] & B00011111 == B00011110)
         vMax = buffer[packetPos + 1] & B01111111;
       packetPos += 2;
       break;
@@ -95,14 +100,78 @@ uint8_t readPacket(int count)
 
     case 4:
       //100 Function Group One Instruction
+      #ifdef F1
+      if (buffer[packetPos] & BIT0)
+        P1OUT |= F1;
+      else
+        P1OUT &= ~F1;
+      #endif
+
+      #ifdef F2
+      if (buffer[packetPos] & BIT1)
+        P1OUT |= F2;
+      else
+        P1OUT &= ~F2;
+      #endif
+
+      #ifdef F3
+      if (buffer[packetPos] & BIT2)
+        P1OUT |= F3;
+      else
+        P1OUT &= ~F3;
+      #endif
+
+      #ifdef F4
+      if (buffer[packetPos] & BIT3)
+        P1OUT |= F4;
+      else
+        P1OUT &= ~F4;
+      #endif
+
+      #ifdef FL
+      if (buffer[packetPos] & BIT4)
+        P1OUT |= FL;
+      else
+        P1OUT &= ~FL;
+      #endif
+
+      #ifdef DEBUG
+      Serial.println(buffer[packetPos] & B00011111, BIN);
+      #endif
       break;
 
     case 5:
       //101 Function Group Two Instruction
+
+
       break;
 
     case 7:
       //111 Configuration Variable Access Instruction
+      if (buffer[packetPos] == 0xEC)
+      {
+        if (cv[0] == 0 && cv[1] == 0)
+        {
+          cv[0] = buffer[packetPos + 1];
+          cv[1] = buffer[packetPos + 2];
+        }
+        else if (cv[0] == buffer[packetPos + 1] && cv[1] == buffer[packetPos + 2])
+        {
+          write8(cv[0], cv[1]);
+          
+          #ifdef DEBUG
+          Serial.print("CV");
+          Serial.print(cv[0], DEC);
+          Serial.print(": ");
+          Serial.println(cv[1], DEC);
+          #endif
+
+          cv[0] = 0;
+          cv[1] = 0;
+          controlInit();
+        }
+      }
+
       break;
 
     default:
