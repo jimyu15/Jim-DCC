@@ -63,12 +63,44 @@ decide to ignore the <q ID> return and only react to <Q ID> triggers.
 
 ///////////////////////////////////////////////////////////////////////////////
   
-void Sensor::check(){    
+void Sensor::check()
+{
   Sensor *tt;
+  uint32_t inputbuffer;
+  if (!digitalRead(DIRECTION_MOTOR_CHANNEL_PIN_A))
+  {
+    while(!digitalRead(DIRECTION_MOTOR_CHANNEL_PIN_A));
+    delayMicroseconds(25);
+    uint8_t buf[5];
+    buf[0] = PINL;
+    buf[1] = PING;
+    buf[2] = PIND;
+    buf[3] = PINC;
+    buf[4] = PINA;
+    inputbuffer = (buf[0] & 0x10) << 3;
+    inputbuffer |= (buf[0] & 0x20) << 1;
+    inputbuffer |= (buf[0] & 0x40) >> 1;
+    inputbuffer |= (buf[0] & 0x80) >> 3;
+    inputbuffer |= (buf[1] & 0x01) << 3;
+    inputbuffer |= (buf[1] & 0x02) << 1;
+    inputbuffer |= (buf[1] & 0x04) >> 1;
+    inputbuffer |= (buf[2] >> 7 & 0x01);
+    inputbuffer <<= 16;
+    uint16_t temp = 0;
+    for (int i = 0; i < 8; i++)
+    {
+      temp <<= 1;
+      temp |= (buf[3] >> i) & 1;
+    }
+    inputbuffer |= (temp << 8) + buf[4];
+  }  
 
   for(tt=firstSensor;tt!=NULL;tt=tt->nextSensor){
-    tt->signal=tt->signal*(1.0-SENSOR_DECAY)+digitalRead(tt->data.pin)*SENSOR_DECAY;
-    
+    if (tt->data.pin >= 22 && tt->data.pin <= 45 && 0)
+      tt->signal=tt->signal*(1.0-SENSOR_DECAY) + (float)(((inputbuffer >> (tt->data.pin - 22)) & 1) > 0) * SENSOR_DECAY;
+    else
+      tt->signal=tt->signal*(1.0-SENSOR_DECAY)+digitalRead(tt->data.pin)*SENSOR_DECAY;
+
     if(!tt->active && tt->signal<0.5){
       tt->active=true;
       INTERFACE.print("<Q");

@@ -78,11 +78,83 @@ the state of any outputs being monitored or controlled by a separate interface o
 #include <EEPROM.h>
 #include "Comm.h"
 
+const uint8_t servoPos[16] = {
+  64, 192,
+  64, 192,
+  64, 192,
+  64, 192,
+  64, 192,
+  64, 192,
+  64, 192,
+  64, 192,
+};
+volatile uint8_t pulse[8];
+uint8_t servoFlag = 2;
+
+uint8_t Output::refresh(uint8_t *pp)
+{
+  if (servoFlag == 0)
+    return 0;
+  else if (servoFlag == 2)
+  {
+    for (int i = 0; i < 8; i++)
+      pulse[i] = servoPos[i * 2];
+  }
+  for (int i = 0; i < 8; i++)
+  {
+    pp[i] = pulse[i];
+    pp[i + 8] = 1 << i;
+  }
+  uint8_t sorting;
+  for (int i = 6; i >= 0; i--)
+  {
+    bool swap = 0;
+    for (int j = 0; j <= i; j++)
+    {
+      if (pp[j] > pp[j + 1])
+      {
+        uint8_t temp = pp[j];
+        pp[j] = pp[j + 1];
+        pp[j + 1] = temp;
+        temp = pp[j + 8];
+        pp[j + 8] = pp[j + 9];
+        pp[j + 9] = temp;
+        swap = 1;
+      }
+
+    }
+    if (!swap)
+      break;
+  }
+
+  uint8_t sum = 0;
+  for (int i = 7; i >= 0; i--)
+  {
+    if (i > 0)
+      pp[i] -= pp[i - 1];
+    sum |= pp[15 - i];
+    pp[15 - i] = sum;
+  }
+
+  servoFlag = 0;
+  return 1;
+}
+
+void Output::servo(int id, bool st)
+{
+  pulse[id] = servoPos[id * 2 + st];
+  servoFlag = 1;
+
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 
 void Output::activate(int s){
   data.oStatus=(s>0);                                               // if s>0, set status to active, else inactive
-  digitalWrite(data.pin,data.oStatus ^ bitRead(data.iFlag,0));      // set state of output pin to HIGH or LOW depending on whether bit zero of iFlag is set to 0 (ACTIVE=HIGH) or 1 (ACTIVE=LOW)
+  if (data.id >= 0 && data.id < 8)
+    servo(data.id, data.oStatus ^ bitRead(data.iFlag,0));
+  else
+    digitalWrite(data.pin,data.oStatus ^ bitRead(data.iFlag,0));      // set state of output pin to HIGH or LOW depending on whether bit zero of iFlag is set to 0 (ACTIVE=HIGH) or 1 (ACTIVE=LOW)
   if(num>0)
     EEPROM.put(num,data.oStatus);
   INTERFACE.print("<Y");

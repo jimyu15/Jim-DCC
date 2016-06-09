@@ -172,6 +172,7 @@ DCC++ BASE STATION is configured through the Config.h file that contains all use
 #include "PacketRegister.h"
 #include "CurrentMonitor.h"
 #include "Sensor.h"
+#include "Outputs.h"
 #include "SerialCommand.h"
 #include "Accessories.h"
 #include "EEStore.h"
@@ -191,7 +192,10 @@ void showConfiguration();
 // NOTE REGISTER LISTS MUST BE DECLARED WITH "VOLATILE" QUALIFIER TO ENSURE THEY ARE PROPERLY UPDATED BY INTERRUPT ROUTINES
 
 volatile RegisterList mainRegs(MAX_MAIN_REGISTERS);    // create list of registers for MAX_MAIN_REGISTER Main Track Packets
-volatile RegisterList progRegs(2);                     // create a shorter list of only two registers for Program Track Packets
+volatile RegisterList progRegs(2);  
+uint8_t servoSt = 0;
+uint8_t servoTimer = 0;
+uint8_t timerReg[16];
 
 CurrentMonitor mainMonitor(CURRENT_MONITOR_PIN_MAIN,"<p2>");  // create monitor for current on Main Track
 CurrentMonitor progMonitor(CURRENT_MONITOR_PIN_PROG,"<p3>");  // create monitor for current on Program Track
@@ -207,11 +211,55 @@ void loop(){
   if(CurrentMonitor::checkTime()){      // if sufficient time has elapsed since last update, check current draw on Main and Program Tracks 
     mainMonitor.check();
     progMonitor.check();
+    if (servoTimer)
+      servoTimer--;
+    else
+    {
+      if (Output::refresh(timerReg))
+      {
+        servoSt = 7;
+        TCCR4A = 0x00;                // Normal mode, just as a Timer
+        TCCR4B &= ~_BV(CS12);          // prescaler = CPU clock/64
+        TCCR4B |= _BV(CS11);       
+        TCCR4B |= _BV(CS10);   
+        TIMSK4 |= _BV(TOIE1);         // enable timer overflow interrupt
+        TCNT4 = -1 * timerReg[0];
+      }
+      servoTimer = 20;
+    }
   }
-
+  
   Sensor::check();    // check sensors for activate/de-activate
+
   
 } // loop
+
+
+ISR (TIMER4_OVF_vect)
+{
+  if (servoSt == 8)
+  {
+    PORTK = 0xFF;
+    servoSt = 0;
+    TCNT4 = -1 * timerReg[0] - 250;
+  }
+  else
+  {
+    while (timerReg[servoSt + 1] == 0)
+      servoSt++;
+    if (servoSt == 7)
+    {
+      PORTK = 0;
+      TCNT4 = -5000;
+    }
+    else
+    {
+      PORTK &= ~timerReg[servoSt + 8];
+      TCNT4 = -1 * timerReg[servoSt + 1]; 
+    }
+    servoSt++;
+  }
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 // INITIAL SETUP
@@ -224,6 +272,15 @@ void setup(){
   Serial2.begin(115200);
   Serial3.begin(9600);
   Serial.flush();
+
+  for (int i = 22; i <= 45; i++)
+    pinMode(i, INPUT_PULLUP);
+  for (int i = 62; i <= 69; i++)
+    pinMode(i, OUTPUT);
+
+ 
+  
+
 
   #ifdef SDCARD_CS
     pinMode(SDCARD_CS,OUTPUT);
