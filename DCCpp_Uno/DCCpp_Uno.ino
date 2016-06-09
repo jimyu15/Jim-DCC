@@ -222,6 +222,7 @@ void setup(){
   Serial.begin(115200);            // configure serial interface
   Serial1.begin(115200);
   Serial2.begin(115200);
+  Serial3.begin(9600);
   Serial.flush();
 
   #ifdef SDCARD_CS
@@ -304,7 +305,7 @@ void setup(){
   OCR1B=DCC_ONE_BIT_PULSE_DURATION_TIMER1;
   
   pinMode(SIGNAL_ENABLE_PIN_MAIN,OUTPUT);   // master enable for motor channel A
-
+  //digitalWrite(SIGNAL_ENABLE_PIN_MAIN, HIGH);
   mainRegs.loadPacket(1,RegisterList::idlePacket,2,0);    // load idle packet into register 1    
       
   bitSet(TIMSK1,OCIE1B);    // enable interrupt vector for Timer 1 Output Compare B Match (OCR1B)    

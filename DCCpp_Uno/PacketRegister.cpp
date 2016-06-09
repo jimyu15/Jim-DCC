@@ -466,6 +466,11 @@ void RegisterList::printPacket(int nReg, byte *b, int nBytes, int nRepeat) volat
   Serial1.print(" / ");
   Serial1.print(nRepeat);
   Serial1.println(">");
+
+  for(int i=0;i<nBytes;i++){
+    Serial3.write(b[i]);
+  }
+  Serial3.write('/n');
 } // RegisterList::printPacket()
 
 ///////////////////////////////////////////////////////////////////////////////
