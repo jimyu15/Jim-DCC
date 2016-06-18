@@ -1,6 +1,6 @@
 #define ADDR 28
 
-
+#define LED BIT3
 
 
 //CV

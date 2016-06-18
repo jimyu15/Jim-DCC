@@ -3,6 +3,7 @@
 void setup()
 {
 	//Serial.begin(9600);
+	
 	eepromInit();
 	write8(CV_PRI_ADDR, 28);
 	write8(CV_VSTART, 25);
@@ -10,9 +11,14 @@ void setup()
 	write8(CV_DEC_RATE, 4);
 	write8(CV_VHIGH, 120);
 	write8(CV_VMID, 60);
+
+	enableWatchDog();
+	P1DIR |= LED;
 }
 
 void loop()
 {
+	P1OUT ^= LED;
+	delay(1000);
 
 }
