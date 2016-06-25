@@ -17,6 +17,7 @@ CurrentMonitor::CurrentMonitor(int pin, char *msg){
     this->pin=pin;
     this->msg=msg;
     current=0;
+    analogReference(INTERNAL2V56);
   } // CurrentMonitor::CurrentMonitor
   
 boolean CurrentMonitor::checkTime(){

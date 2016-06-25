@@ -66,11 +66,11 @@ decide to ignore the <q ID> return and only react to <Q ID> triggers.
 void Sensor::check()
 {
   Sensor *tt;
-  uint32_t inputbuffer;
-  if (!digitalRead(DIRECTION_MOTOR_CHANNEL_PIN_A))
+  static uint32_t inputbuffer;
+  if (digitalRead(DIRECTION_MOTOR_CHANNEL_PIN_A))
   {
-    while(!digitalRead(DIRECTION_MOTOR_CHANNEL_PIN_A));
-    delayMicroseconds(25);
+    while(digitalRead(DIRECTION_MOTOR_CHANNEL_PIN_A));
+    delayMicroseconds(20);
     uint8_t buf[5];
     buf[0] = PINL;
     buf[1] = PING;
@@ -96,7 +96,7 @@ void Sensor::check()
   }  
 
   for(tt=firstSensor;tt!=NULL;tt=tt->nextSensor){
-    if (tt->data.pin >= 22 && tt->data.pin <= 45 && 0)
+    if (tt->data.pin >= 22 && tt->data.pin <= 45)
       tt->signal=tt->signal*(1.0-SENSOR_DECAY) + (float)(((inputbuffer >> (tt->data.pin - 22)) & 1) > 0) * SENSOR_DECAY;
     else
       tt->signal=tt->signal*(1.0-SENSOR_DECAY)+digitalRead(tt->data.pin)*SENSOR_DECAY;
@@ -112,6 +112,7 @@ void Sensor::check()
       INTERFACE.print(tt->data.snum);
       INTERFACE.print(">");
     }
+
   } // loop over all sensors
     
 } // Sensor::check
