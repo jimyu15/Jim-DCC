@@ -16222,10 +16222,10 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 <part name="FRAME2" library="microbuilder" deviceset="FRAME_A4" device=""/>
 <part name="D1" library="SparkFun-DiscreteSemi" deviceset="B340A" device="" value="SR240"/>
 <part name="D2" library="SparkFun-DiscreteSemi" deviceset="B340A" device="" value="SR240"/>
-<part name="R1" library="rcl" deviceset="R-EU_" device="R0603" value="68R"/>
+<part name="R1" library="rcl" deviceset="R-EU_" device="R0603" value="DNP"/>
 <part name="C1" library="adafruit" deviceset="C-US" device="C0603" value="100P"/>
 <part name="JP1" library="SparkFun-Connectors" deviceset="M02" device="POGO_PIN_HOLES_ONLY"/>
-<part name="VR1" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="100K"/>
+<part name="VR1" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="10K"/>
 <part name="GND1" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="D3" library="SparkFun-DiscreteSemi" deviceset="B340A" device="" value="SR240"/>
 <part name="D4" library="SparkFun-DiscreteSemi" deviceset="B340A" device="" value="SR240"/>
@@ -16244,23 +16244,23 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 <part name="GND4" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="U1" library="SparkFun-AnalogIC" deviceset="LM339" device=""/>
 <part name="GND5" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="R2" library="rcl" deviceset="R-EU_" device="R0603" value="68R"/>
-<part name="R3" library="rcl" deviceset="R-EU_" device="R0603" value="68R"/>
-<part name="R4" library="rcl" deviceset="R-EU_" device="R0603" value="68R"/>
+<part name="R2" library="rcl" deviceset="R-EU_" device="R0603" value="DNP"/>
+<part name="R3" library="rcl" deviceset="R-EU_" device="R0603" value="DNP"/>
+<part name="R4" library="rcl" deviceset="R-EU_" device="R0603" value="DNP"/>
 <part name="R5" library="rcl" deviceset="R-EU_" device="R0603" value="1K"/>
 <part name="R6" library="rcl" deviceset="R-EU_" device="R0603" value="1K"/>
 <part name="R7" library="rcl" deviceset="R-EU_" device="R0603" value="1K"/>
 <part name="R8" library="rcl" deviceset="R-EU_" device="R0603" value="1K"/>
 <part name="SUPPLY1" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
-<part name="VR2" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="100K"/>
-<part name="VR3" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="100K"/>
-<part name="VR4" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="100K"/>
+<part name="VR2" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="10K"/>
+<part name="VR3" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="10K"/>
+<part name="VR4" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="10K"/>
 <part name="D9" library="SparkFun-DiscreteSemi" deviceset="B340A" device="" value="SR240"/>
 <part name="D10" library="SparkFun-DiscreteSemi" deviceset="B340A" device="" value="SR240"/>
-<part name="R9" library="rcl" deviceset="R-EU_" device="R0603" value="68R"/>
+<part name="R9" library="rcl" deviceset="R-EU_" device="R0603" value="DNP"/>
 <part name="C5" library="adafruit" deviceset="C-US" device="C0603" value="100P"/>
 <part name="JP5" library="SparkFun-Connectors" deviceset="M02" device="POGO_PIN_HOLES_ONLY"/>
-<part name="VR5" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="100K"/>
+<part name="VR5" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="10K"/>
 <part name="GND6" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="D11" library="SparkFun-DiscreteSemi" deviceset="B340A" device="" value="SR240"/>
 <part name="D12" library="SparkFun-DiscreteSemi" deviceset="B340A" device="" value="SR240"/>
@@ -16279,23 +16279,23 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 <part name="GND9" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="U2" library="SparkFun-AnalogIC" deviceset="LM339" device=""/>
 <part name="GND10" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="R10" library="rcl" deviceset="R-EU_" device="R0603" value="68R"/>
-<part name="R11" library="rcl" deviceset="R-EU_" device="R0603" value="68R"/>
-<part name="R12" library="rcl" deviceset="R-EU_" device="R0603" value="68R"/>
+<part name="R10" library="rcl" deviceset="R-EU_" device="R0603" value="DNP"/>
+<part name="R11" library="rcl" deviceset="R-EU_" device="R0603" value="DNP"/>
+<part name="R12" library="rcl" deviceset="R-EU_" device="R0603" value="DNP"/>
 <part name="R13" library="rcl" deviceset="R-EU_" device="R0603" value="1K"/>
 <part name="R14" library="rcl" deviceset="R-EU_" device="R0603" value="1K"/>
 <part name="R15" library="rcl" deviceset="R-EU_" device="R0603" value="1K"/>
 <part name="R16" library="rcl" deviceset="R-EU_" device="R0603" value="1K"/>
 <part name="SUPPLY2" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
-<part name="VR6" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="100K"/>
-<part name="VR7" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="100K"/>
-<part name="VR8" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="100K"/>
+<part name="VR6" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="10K"/>
+<part name="VR7" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="10K"/>
+<part name="VR8" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="10K"/>
 <part name="D17" library="SparkFun-DiscreteSemi" deviceset="B340A" device="" value="SR240"/>
 <part name="D18" library="SparkFun-DiscreteSemi" deviceset="B340A" device="" value="SR240"/>
-<part name="R17" library="rcl" deviceset="R-EU_" device="R0603" value="68R"/>
+<part name="R17" library="rcl" deviceset="R-EU_" device="R0603" value="DNP"/>
 <part name="C9" library="adafruit" deviceset="C-US" device="C0603" value="100P"/>
 <part name="JP9" library="SparkFun-Connectors" deviceset="M02" device="POGO_PIN_HOLES_ONLY"/>
-<part name="VR9" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="100K"/>
+<part name="VR9" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="10K"/>
 <part name="GND11" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="D19" library="SparkFun-DiscreteSemi" deviceset="B340A" device="" value="SR240"/>
 <part name="D20" library="SparkFun-DiscreteSemi" deviceset="B340A" device="" value="SR240"/>
@@ -16314,24 +16314,24 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 <part name="GND14" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="U3" library="SparkFun-AnalogIC" deviceset="LM339" device=""/>
 <part name="GND15" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="R18" library="rcl" deviceset="R-EU_" device="R0603" value="68R"/>
-<part name="R19" library="rcl" deviceset="R-EU_" device="R0603" value="68R"/>
-<part name="R20" library="rcl" deviceset="R-EU_" device="R0603" value="68R"/>
+<part name="R18" library="rcl" deviceset="R-EU_" device="R0603" value="DNP"/>
+<part name="R19" library="rcl" deviceset="R-EU_" device="R0603" value="DNP"/>
+<part name="R20" library="rcl" deviceset="R-EU_" device="R0603" value="DNP"/>
 <part name="R21" library="rcl" deviceset="R-EU_" device="R0603" value="1K"/>
 <part name="R22" library="rcl" deviceset="R-EU_" device="R0603" value="1K"/>
 <part name="R23" library="rcl" deviceset="R-EU_" device="R0603" value="1K"/>
 <part name="R24" library="rcl" deviceset="R-EU_" device="R0603" value="1K"/>
 <part name="SUPPLY3" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
-<part name="VR10" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="100K"/>
-<part name="VR11" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="100K"/>
-<part name="VR12" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="100K"/>
+<part name="VR10" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="10K"/>
+<part name="VR11" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="10K"/>
+<part name="VR12" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="10K"/>
 <part name="FRAME1" library="microbuilder" deviceset="FRAME_A4" device=""/>
 <part name="D25" library="SparkFun-DiscreteSemi" deviceset="B340A" device="" value="SR240"/>
 <part name="D26" library="SparkFun-DiscreteSemi" deviceset="B340A" device="" value="SR240"/>
-<part name="R25" library="rcl" deviceset="R-EU_" device="R0603" value="68R"/>
+<part name="R25" library="rcl" deviceset="R-EU_" device="R0603" value="DNP"/>
 <part name="C13" library="adafruit" deviceset="C-US" device="C0603" value="100P"/>
 <part name="JP13" library="SparkFun-Connectors" deviceset="M02" device="POGO_PIN_HOLES_ONLY"/>
-<part name="VR13" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="100K"/>
+<part name="VR13" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="10K"/>
 <part name="GND16" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="D27" library="SparkFun-DiscreteSemi" deviceset="B340A" device="" value="SR240"/>
 <part name="D28" library="SparkFun-DiscreteSemi" deviceset="B340A" device="" value="SR240"/>
@@ -16350,23 +16350,23 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 <part name="GND19" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="U4" library="SparkFun-AnalogIC" deviceset="LM339" device=""/>
 <part name="GND20" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="R26" library="rcl" deviceset="R-EU_" device="R0603" value="68R"/>
-<part name="R27" library="rcl" deviceset="R-EU_" device="R0603" value="68R"/>
-<part name="R28" library="rcl" deviceset="R-EU_" device="R0603" value="68R"/>
+<part name="R26" library="rcl" deviceset="R-EU_" device="R0603" value="DNP"/>
+<part name="R27" library="rcl" deviceset="R-EU_" device="R0603" value="DNP"/>
+<part name="R28" library="rcl" deviceset="R-EU_" device="R0603" value="DNP"/>
 <part name="R29" library="rcl" deviceset="R-EU_" device="R0603" value="1K"/>
 <part name="R30" library="rcl" deviceset="R-EU_" device="R0603" value="1K"/>
 <part name="R31" library="rcl" deviceset="R-EU_" device="R0603" value="1K"/>
 <part name="R32" library="rcl" deviceset="R-EU_" device="R0603" value="1K"/>
 <part name="SUPPLY4" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
-<part name="VR14" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="100K"/>
-<part name="VR15" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="100K"/>
-<part name="VR16" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="100K"/>
+<part name="VR14" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="10K"/>
+<part name="VR15" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="10K"/>
+<part name="VR16" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="10K"/>
 <part name="D33" library="SparkFun-DiscreteSemi" deviceset="B340A" device="" value="SR240"/>
 <part name="D34" library="SparkFun-DiscreteSemi" deviceset="B340A" device="" value="SR240"/>
-<part name="R33" library="rcl" deviceset="R-EU_" device="R0603" value="68R"/>
+<part name="R33" library="rcl" deviceset="R-EU_" device="R0603" value="DNP"/>
 <part name="C17" library="adafruit" deviceset="C-US" device="C0603" value="100P"/>
 <part name="JP17" library="SparkFun-Connectors" deviceset="M02" device="POGO_PIN_HOLES_ONLY"/>
-<part name="VR17" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="100K"/>
+<part name="VR17" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="10K"/>
 <part name="GND21" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="D35" library="SparkFun-DiscreteSemi" deviceset="B340A" device="" value="SR240"/>
 <part name="D36" library="SparkFun-DiscreteSemi" deviceset="B340A" device="" value="SR240"/>
@@ -16385,23 +16385,23 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 <part name="GND24" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="U5" library="SparkFun-AnalogIC" deviceset="LM339" device=""/>
 <part name="GND25" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="R34" library="rcl" deviceset="R-EU_" device="R0603" value="68R"/>
-<part name="R35" library="rcl" deviceset="R-EU_" device="R0603" value="68R"/>
-<part name="R36" library="rcl" deviceset="R-EU_" device="R0603" value="68R"/>
+<part name="R34" library="rcl" deviceset="R-EU_" device="R0603" value="DNP"/>
+<part name="R35" library="rcl" deviceset="R-EU_" device="R0603" value="DNP"/>
+<part name="R36" library="rcl" deviceset="R-EU_" device="R0603" value="DNP"/>
 <part name="R37" library="rcl" deviceset="R-EU_" device="R0603" value="1K"/>
 <part name="R38" library="rcl" deviceset="R-EU_" device="R0603" value="1K"/>
 <part name="R39" library="rcl" deviceset="R-EU_" device="R0603" value="1K"/>
 <part name="R40" library="rcl" deviceset="R-EU_" device="R0603" value="1K"/>
 <part name="SUPPLY5" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
-<part name="VR18" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="100K"/>
-<part name="VR19" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="100K"/>
-<part name="VR20" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="100K"/>
+<part name="VR18" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="10K"/>
+<part name="VR19" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="10K"/>
+<part name="VR20" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="10K"/>
 <part name="D41" library="SparkFun-DiscreteSemi" deviceset="B340A" device="" value="SR240"/>
 <part name="D42" library="SparkFun-DiscreteSemi" deviceset="B340A" device="" value="SR240"/>
-<part name="R41" library="rcl" deviceset="R-EU_" device="R0603" value="68R"/>
+<part name="R41" library="rcl" deviceset="R-EU_" device="R0603" value="DNP"/>
 <part name="C21" library="adafruit" deviceset="C-US" device="C0603" value="100P"/>
 <part name="JP21" library="SparkFun-Connectors" deviceset="M02" device="POGO_PIN_HOLES_ONLY"/>
-<part name="VR21" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="100K"/>
+<part name="VR21" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="10K"/>
 <part name="GND26" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="D43" library="SparkFun-DiscreteSemi" deviceset="B340A" device="" value="SR240"/>
 <part name="D44" library="SparkFun-DiscreteSemi" deviceset="B340A" device="" value="SR240"/>
@@ -16420,17 +16420,17 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 <part name="GND29" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="U6" library="SparkFun-AnalogIC" deviceset="LM339" device=""/>
 <part name="GND30" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="R42" library="rcl" deviceset="R-EU_" device="R0603" value="68R"/>
-<part name="R43" library="rcl" deviceset="R-EU_" device="R0603" value="68R"/>
-<part name="R44" library="rcl" deviceset="R-EU_" device="R0603" value="68R"/>
+<part name="R42" library="rcl" deviceset="R-EU_" device="R0603" value="DNP"/>
+<part name="R43" library="rcl" deviceset="R-EU_" device="R0603" value="DNP"/>
+<part name="R44" library="rcl" deviceset="R-EU_" device="R0603" value="DNP"/>
 <part name="R45" library="rcl" deviceset="R-EU_" device="R0603" value="1K"/>
 <part name="R46" library="rcl" deviceset="R-EU_" device="R0603" value="1K"/>
 <part name="R47" library="rcl" deviceset="R-EU_" device="R0603" value="1K"/>
 <part name="R48" library="rcl" deviceset="R-EU_" device="R0603" value="1K"/>
 <part name="SUPPLY6" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
-<part name="VR22" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="100K"/>
-<part name="VR23" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="100K"/>
-<part name="VR24" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="100K"/>
+<part name="VR22" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="10K"/>
+<part name="VR23" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="10K"/>
+<part name="VR24" library="SparkFun-Electromechanical" deviceset="TRIMPOT" device="3MM-2" value="10K"/>
 <part name="FRAME3" library="microbuilder" deviceset="FRAME_A4" device=""/>
 <part name="JP25" library="pinhead-2" deviceset="PINHD-2X18" device="_2.54"/>
 <part name="JP26" library="pinhead-2" deviceset="PINHD-1X08" device="_2.54-S"/>
