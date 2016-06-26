@@ -1,5 +1,3 @@
-# Open Sorce DCC Project by Jim
-
 ## Hardware
 
 Schematics and layouts
