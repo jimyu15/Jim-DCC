@@ -8,7 +8,7 @@ Eagle PCB projects
 
 #### Command Center
 
-* DRV8801 enabled 2.5A driving ability with current sensing and protection
+* DRV8801 enabled 2.8A driving ability with current sensing and protection
 * 24-ch occupancy sensing ability
 * 8-ch turnout servo control
 
@@ -46,7 +46,7 @@ Energia MSP430 project
 
 ## DCCpp_UNO
 
-DCC++ Command station with occupancy sensing and servo control
+Modified DCC++ command station with occupancy sensing and servo control
 
 Arduino Mega2560 project
 
