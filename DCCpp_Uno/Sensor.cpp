@@ -67,7 +67,7 @@ void Sensor::check()
 {
   Sensor *tt;
   static uint32_t inputbuffer;
-  if (digitalRead(DIRECTION_MOTOR_CHANNEL_PIN_A))
+  if (digitalRead(DIRECTION_MOTOR_CHANNEL_PIN_A) && digitalRead(SIGNAL_ENABLE_PIN_MAIN))
   {
     while(digitalRead(DIRECTION_MOTOR_CHANNEL_PIN_A));
     delayMicroseconds(20);

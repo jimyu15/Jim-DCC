@@ -321,8 +321,8 @@ void SerialCommand::parse(char *com){
  *    
  *    returns: <p0>
  */
-     digitalWrite(SIGNAL_ENABLE_PIN_PROG,HIGH);
-     digitalWrite(SIGNAL_ENABLE_PIN_MAIN,HIGH);
+     digitalWrite(SIGNAL_ENABLE_PIN_PROG,LOW);
+     digitalWrite(SIGNAL_ENABLE_PIN_MAIN,LOW);
      INTERFACE.print("<p0>");
      break;
 

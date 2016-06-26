@@ -78,7 +78,7 @@ the state of any outputs being monitored or controlled by a separate interface o
 #include <EEPROM.h>
 #include "Comm.h"
 
-const uint8_t servoPos[16] = {
+uint8_t servoPos[16] = {
   64, 192,
   64, 192,
   64, 192,
@@ -147,12 +147,28 @@ void Output::servo(int id, bool st)
 
 }
 
+void Output::servo(int id, uint8_t on, uint8_t off)
+{
+  if (id >= 0 && id < 8)
+  {
+    servoPos[id * 2] = on;
+    servoPos[id * 2 + 1] = off;
+    INTERFACE.print("<X ");
+    INTERFACE.print(id);
+    INTERFACE.print(" ");
+    INTERFACE.print(servoPos[id * 2]);
+    INTERFACE.print(" ");
+    INTERFACE.print(servoPos[id * 2 + 1]);
+    INTERFACE.print(">");
+  }
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 
 void Output::activate(int s){
   data.oStatus=(s>0);                                               // if s>0, set status to active, else inactive
-  if (data.id >= 0 && data.id < 8)
-    servo(data.id, data.oStatus ^ bitRead(data.iFlag,0));
+  if (data.pin >= 62 && data.pin < 70)
+    servo(data.pin - 62, data.oStatus ^ bitRead(data.iFlag,0));
   else
     digitalWrite(data.pin,data.oStatus ^ bitRead(data.iFlag,0));      // set state of output pin to HIGH or LOW depending on whether bit zero of iFlag is set to 0 (ACTIVE=HIGH) or 1 (ACTIVE=LOW)
   if(num>0)
@@ -205,6 +221,17 @@ void Output::remove(int n){
 void Output::show(int n){
   Output *tt;
 
+  for (int i = 0; i < 8; i++)
+  {
+    INTERFACE.print("<X ");
+    INTERFACE.print(i);
+    INTERFACE.print(" ");
+    INTERFACE.print(servoPos[i * 2]);
+    INTERFACE.print(" ");
+    INTERFACE.print(servoPos[i * 2 + 1]);
+    INTERFACE.print(">");
+  }
+
   if(firstOutput==NULL){
     INTERFACE.print("<X>");
     return;
@@ -224,15 +251,17 @@ void Output::show(int n){
      else
        INTERFACE.print(" 1>"); 
   }
+
+  
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
 void Output::parse(char *c){
-  int n,s,m;
+  int n,s,m,a;
   Output *t;
   
-  switch(sscanf(c,"%d %d %d",&n,&s,&m)){
+  switch(sscanf(c,"%d %d %d %d",&n,&s,&m,&a)){
     
     case 2:                     // argument is string with id number of output followed by zero (LOW) or one (HIGH)
       t=get(n);
@@ -244,6 +273,10 @@ void Output::parse(char *c){
 
     case 3:                     // argument is string with id number of output followed by a pin number and invert flag
       create(n,s,m,1);
+    break;
+
+    case 4:
+      servo(n, m, a);
     break;
 
     case 1:                     // argument is a string with id number only
@@ -270,7 +303,13 @@ void Output::load(){
     pinMode(tt->data.pin,OUTPUT);
     tt->num=EEStore::pointer();
     EEStore::advance(sizeof(tt->data));
-  }  
+  }
+
+  for (int i = 0; i < 16; i++)
+    EEPROM.get(EEStore::pointer() + i, servoPos[i]);
+  EEStore::advance(16);
+
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -288,6 +327,10 @@ void Output::store(){
     tt=tt->nextOutput;
     EEStore::eeStore->data.nOutputs++;
   }
+
+  for (int i = 0; i < 16; i++)
+    EEPROM.put(EEStore::pointer() + i, servoPos[i]);
+  EEStore::advance(16);
   
 }
 ///////////////////////////////////////////////////////////////////////////////

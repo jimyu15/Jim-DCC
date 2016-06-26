@@ -33,6 +33,7 @@ struct Output{
   static Output *create(int, int, int, int=0);
   static void show(int=0);
   void servo(int, bool);
+  static void servo(int, uint8_t, uint8_t);
   static uint8_t refresh(uint8_t*);
 }; // Output
   
