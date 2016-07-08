@@ -192,7 +192,8 @@ void showConfiguration();
 // NOTE REGISTER LISTS MUST BE DECLARED WITH "VOLATILE" QUALIFIER TO ENSURE THEY ARE PROPERLY UPDATED BY INTERRUPT ROUTINES
 
 volatile RegisterList mainRegs(MAX_MAIN_REGISTERS);    // create list of registers for MAX_MAIN_REGISTER Main Track Packets
-volatile RegisterList progRegs(2);  
+volatile RegisterList progRegs(2); 
+volatile uint8_t servoSw = 0; 
 uint8_t servoSt = 0;
 uint8_t servoTimer = 0;
 uint8_t timerReg[16];
@@ -215,7 +216,8 @@ void loop(){
       servoTimer--;
     else
     {
-      if (Output::refresh(timerReg))
+      servoSw = Output::refresh(timerReg);
+      if (servoSw)
       {
         servoSt = 7;
         TCCR4A = 0x00;                // Normal mode, just as a Timer
@@ -239,7 +241,7 @@ ISR (TIMER4_OVF_vect)
 {
   if (servoSt == 8)
   {
-    PORTK = 0xFF;
+    PORTK = servoSw;
     servoSt = 0;
     TCNT4 = -1 * timerReg[0] - 250;
   }

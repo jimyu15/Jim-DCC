@@ -89,13 +89,13 @@ uint8_t servoPos[16] = {
   64, 192,
 };
 volatile uint8_t pulse[8];
-uint8_t servoFlag = 2;
+uint8_t servoFlag = 11;
 
 uint8_t Output::refresh(uint8_t *pp)
 {
   if (servoFlag == 0)
     return 0;
-  else if (servoFlag == 2)
+  else if (servoFlag == 11)
   {
     for (int i = 0; i < 8; i++)
       pulse[i] = servoPos[i * 2];
@@ -136,14 +136,14 @@ uint8_t Output::refresh(uint8_t *pp)
     pp[15 - i] = sum;
   }
 
-  servoFlag = 0;
-  return 1;
+  servoFlag--;
+  return 0xFF;
 }
 
 void Output::servo(int id, bool st)
 {
   pulse[id] = servoPos[id * 2 + st];
-  servoFlag = 1;
+  servoFlag = 10;
 
 }
 
