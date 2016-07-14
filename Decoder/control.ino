@@ -9,13 +9,13 @@ float vCurrent;
 
 void controlInit()
 {
-  addr = read8(CV_PRI_ADDR);
+  addr = 40;
   vSet = 0;
-  vMax = constrain(read8(CV_VHIGH), 60, 127); 
-  vMid = constrain(read8(CV_VMID), 20, 120);
-  vStart = constrain(read8(CV_VSTART), 0, 60);
-  acc = constrain(read8(CV_ACC_RATE), 0, 50);
-  dec = constrain(read8(CV_DEC_RATE),0, 50);
+  vMax = 120; 
+  vMid = 60;
+  vStart = 25;
+  acc = 10;
+  dec = 4;
   vCurrent = 0;
   vTimer = timer;
   #ifdef DEBUG
@@ -76,6 +76,20 @@ void speedCal()
   else
     CCR1 = min(vMax, vMid + (float)(vMax - vMid) * (abs(vCurrent) - 64) / 63);
   #endif
+
+  #ifdef HEADLIGHT
+  if (vCurrent >= 0)
+  {
+    P1OUT &= ~EN2;
+    P1OUT |= EN1;
+  }
+  else
+  {
+    P1OUT &= ~EN1;
+    P1OUT |= EN2;
+  }
+  #endif
+
 
   vTimer += delta;
 

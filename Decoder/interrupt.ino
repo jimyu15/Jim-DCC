@@ -22,6 +22,7 @@ void Port_1(void)
       {
         timerCount = 0;
         sleepingMode = 0;
+        timerInit();
         #ifdef MOTOR
         P1OUT |= NSLEEP;
         #endif
@@ -42,6 +43,7 @@ void Port_1(void)
       {
         timerCount = 0;
         sleepingMode = 0;
+        timerInit();
         #ifdef MOTOR
         P1OUT |= NSLEEP;
         #endif

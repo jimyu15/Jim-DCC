@@ -12,17 +12,6 @@ void testing()
 			P1OUT ^= LED;
 			delay(1000);
 		}
-	else if(TEST_EEPROM)
-	{
-		eepromInit();
-		enableWatchDog();
-		while(1)
-		{
-			P1OUT ^= LED;
-			delay(1000);
-
-		}
-	}
 	else if(TEST_INPUT)
 	{
 		P1OUT |= LED;
@@ -34,7 +23,7 @@ void testing()
 			while(P1IN & IN2);
 			while(P1IN & IN1);
 			ct++;
-			if (ct > 1000)
+			if (ct > 10000)
 			{
 				P1OUT ^= LED;
 				ct = 0;
@@ -42,5 +31,23 @@ void testing()
 
 
 		}
+	}
+	else if (TEST_FUNC)
+	{
+		enableWatchDog();
+		#ifdef HEADLIGHT
+		P1OUT |= EN1;
+		while(1)
+		{
+			
+			P1OUT ^= EN1 + EN2;
+			delay(1000);
+
+		}
+		#endif
+
+
+		
+
 	}
 }

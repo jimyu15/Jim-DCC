@@ -157,8 +157,6 @@ uint8_t readPacket(int count)
         }
         else if (cv[0] == buffer[packetPos + 1] && cv[1] == buffer[packetPos + 2])
         {
-          write8(cv[0], cv[1]);
-          
           #ifdef DEBUG
           Serial.print("CV");
           Serial.print(cv[0], DEC);

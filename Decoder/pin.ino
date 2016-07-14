@@ -6,6 +6,9 @@ void pinInit()
   P1SEL |= EN;
   P1OUT = NSLEEP;
   #endif
+  #ifdef HEADLIGHT
+  P1DIR |= EN1 + EN2;
+  #endif
   #ifdef F1
   P1DIR |= F1;
   #endif

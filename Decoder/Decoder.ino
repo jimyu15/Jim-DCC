@@ -14,7 +14,7 @@ void setup()
   #endif
   
   pinInit();
-  eepromInit();
+  testing();
   timerInit();
   
   interruptInit();

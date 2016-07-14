@@ -1,10 +1,10 @@
 //#define DEBUG
 
 #define MOTOR
+//#define HEADLIGHT
 
 #define SHUTDOWN_TIMEOUT 500
 #define MICROS_PER_COUNT (128*1000000/F_CPU)
-
 
 
 #define LED BIT3
@@ -15,6 +15,11 @@
 #define NSLEEP BIT0
 #define PH BIT1
 #define EN BIT2
+#endif
+
+#ifdef HEADLIGHT
+#define EN1 BIT1
+#define EN2 BIT2
 #endif
 
 //#define F1
